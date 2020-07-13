@@ -152,6 +152,15 @@
             border: 1px solid #ff0000;
             background: white;
             color: #ff0000; }
+        .albumsShow .albumBx .albumBx_inner .buttonBx .searchGround {
+          border: 1px solid #9900e0;
+          box-sizing: border-box;
+          background: #9900e0;
+          color: white; }
+          .albumsShow .albumBx .albumBx_inner .buttonBx .searchGround:hover {
+            border: 1px solid #9900e0;
+            background: white;
+            color: #9900e0; }
 
 .player {
   border: none;

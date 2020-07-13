@@ -59,6 +59,9 @@
                             target="_blank">
                             <i class="fa fa-youtube-play"></i>Youtube
                         </a>
+                        <a class="button searchGround" v-bind:href="getGoogleSearchSrc(a.album.name)" target="_blank">
+                            <i class="fa fa-shopping-cart"></i>搜尋哪裡有賣
+                        </a>
                     </div>
 
                     <!-- <input type="button" value="試聽" v-on:click="getPlayerSrc(a.id,'song')" v-if="nowPlayId != a.id" v-key="a.id">
@@ -74,11 +77,12 @@
         {{nowPlayId}}
         <iframe class="player" v-bind:src="playerSrc" allow="autoplay"></iframe>
 
-           <!-- 按鈕觸發式 -->
-           <div class="showList">
+        <!-- 按鈕觸發式 -->
+        <div class="showList">
             <div class="showList_button" v-for="a in chartsInf">
                 <label v-bind:for="a.id">
-                    <input name="chartsChioce" v-on:click="gotoTop" v-bind:value="a.id" v-bind:id="a.id" type="radio" v-model="chartsChioce">
+                    <input name="chartsChioce" v-on:click="gotoTop" v-bind:value="a.id" v-bind:id="a.id" type="radio"
+                        v-model="chartsChioce">
                     <span>{{a.title}}</span>
                 </label>
             </div>

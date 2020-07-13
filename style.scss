@@ -203,6 +203,17 @@
                         color: #ff0000;
                     }
                 }
+                .searchGround{
+                    border: 1px solid #9900e0;
+                    box-sizing: border-box;
+                    background: #9900e0;
+                    color: white;
+                    &:hover {
+                        border: 1px solid #9900e0;
+                        background: white;
+                        color: #9900e0;
+                    }
+                }
             }
         }
     }
