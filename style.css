@@ -130,15 +130,15 @@
           font-size: 18px;
           cursor: pointer;
           transition: 0.3s;
-          text-decoration: none;
-          margin-bottom: 1px; }
+          text-decoration: none; }
           .albumsShow .albumBx .albumBx_inner .buttonBx .button i {
             margin-right: 10px; }
         .albumsShow .albumBx .albumBx_inner .buttonBx .normalGround {
           border: 1px solid #242424;
           box-sizing: border-box;
           background: #242424;
-          color: white; }
+          color: white;
+          margin-bottom: 1px; }
           .albumsShow .albumBx .albumBx_inner .buttonBx .normalGround:hover {
             border: 1px solid #f75000;
             background: white;
