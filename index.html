@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 下拉式選單 -->
+        <div class="selectList">
+            <select name="" id="" v-model="chartsChioce">
+                <option v-for="a in chartsInf" v-bind:value="a.id">
+                    {{a.title}}
+                    {{a.updated_at}}
+                </option>
+            </select>
+        </div>
+
+        <div class="albumsShow">
+            <div class="albumBx" v-for="a in playList">
+                <div class="rank1">
+                    <img src="images/medal.png" alt="">
+                </div>
+                <div class="rank2">
+                    <img src="images/second.png" alt="">
+                </div>
+                <div class="rank3">
+                    <img src="images/third.png" alt="">
+                </div>
+                <div class="albumBx_inner">
+                    <div class="albumInf">
+                        <img class="albumImg" v-bind:src="a.album.images[1].url" alt="">
+                    </div>
+
+                    <div class="artistInf">
+                        <img class="artistImg" :src="a.album.artist.images[1].url" alt="">
+                        <div>
+                            <p class="songName">{{a.name}}</p>
+                            <p class="albumName">{{a.album.name}}</p>
+                            <p class="artistName">{{a.album.artist.name}}</p>
+                        </div>
+                    </div>
+
+                    <div class="buttonBx">
+                        <div class="button normalGround" v-on:click="getPlayerSrc(a.id,'song')" v-if="nowPlayId != a.id"
+                            v-key="a.id">
+                            <i class="fa fa-play"></i>試聽
+                        </div>
+                        <div class="button normalGround" v-on:click="getPlayerSrc('','song')"
+                            v-else-if="nowPlayId == a.id">
+                            <i class="fa fa-stop"></i>停止
+                        </div>
+                        <a class="button youtubeGround" v-bind:href="getYoutubeSrc(a.name,a.album.artist.name)"
+                            target="_blank">
+                            <i class="fa fa-youtube-play"></i>Youtube
+                        </a>
+                    </div>
+
+                    <!-- <input type="button" value="試聽" v-on:click="getPlayerSrc(a.id,'song')" v-if="nowPlayId != a.id" v-key="a.id">
+                    <input type="button" value="停止" v-on:click="getPlayerSrc('','song')" v-else-if="nowPlayId == a.id"> -->
+                </div>
+                <!-- <p>{{a.id}}</p>
+                <p>{{a.album.id}}</p>
+                <p>{{a.album.artist.id}}</p> -->
+            </div>
+        </div>
+        {{playerSrc}}
+        <br>
+        {{nowPlayId}}
+        <iframe class="player" v-bind:src="playerSrc" allow="autoplay"></iframe>
+
+           <!-- 按鈕觸發式 -->
+           <div class="showList">
+            <div class="showList_button" v-for="a in chartsInf">
+                <label v-bind:for="a.id">
+                    <input name="chartsChioce" v-on:click="gotoTop" v-bind:value="a.id" v-bind:id="a.id" type="radio" v-model="chartsChioce">
+                    <span>{{a.title}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!--vue cdn-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--axios cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="script2.js"></script>
+</body>
+
+</html>
